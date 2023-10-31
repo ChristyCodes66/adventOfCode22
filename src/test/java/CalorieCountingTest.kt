@@ -14,12 +14,23 @@ class CalorieCountingTest {
     }
 
     @Test
-    fun `should return maximum calories carried by single elf`() {
+    fun `should return estimate of maximum calories carried by single elf`() {
         //Arrange
         val expected = 22450
         //Act
         val actual = calorieCounting.calculateMaxElfTotals("SumDummyCalories")
         //Assert
         assertEquals(expected, actual)
+    }
+
+    @Test
+    fun `should return actual maximum number of calories carried by single elf`() {
+        //Arrange
+        val file = "ElfCalorieData.txt"
+        //Act
+        val actual = calorieCounting.calculateMaxElfTotals(file)
+        val elfIndex = calorieCounting.findMaxIndex(file)
+        //Assert
+        println("The elf with ID: " + elfIndex + " is carrying the most calories: " + actual + "cal.")
     }
 }

@@ -33,4 +33,13 @@ class CalorieCounting {
     private fun resetCurrentElfTotal(resetTo: Int) {
         currentElfTotal = resetTo
     }
+
+    fun findMaxIndex(fileName: String): Int {
+        val maxIndex: Int
+        val maxCal = calculateMaxElfTotals(fileName)
+
+        maxIndex = elfCalorieTotals.indexOf(maxCal)
+
+        return maxIndex
+    }
 }
